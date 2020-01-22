@@ -21,7 +21,7 @@ pipeline {
     stage('Build Process') {
       steps {
         echo 'Build Process'
-        sh 'build.sh'
+        sh 'sh build.sh'
       }
     }
 
@@ -34,6 +34,7 @@ pipeline {
     stage('Artifacts') {
       steps {
         echo 'Artifacts'
+        archiveArtifacts(artifacts: '**/build.log', allowEmptyArchive: true, fingerprint: true)
       }
     }
 
