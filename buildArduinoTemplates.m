@@ -19,9 +19,13 @@ examples = dir(fullfile(example_directory, '*.slx'));
 % for template in templates:
 for template = [templates;examples]'
     [~, model] = fileparts(template.name);
+    if strfind(model, 'MATLAB')
+        % Not working on arduino_MATLAB_IO_Codegen
+        continue
+    end
+    %
     hdl = Simulink.createFromTemplate(model);
-    
-
+    %
     cs = getActiveConfigSet(hdl);
     cs.set_param('GenCodeOnly', 'on');   % Generate code only
     % Save the system
