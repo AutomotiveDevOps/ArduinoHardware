@@ -34,6 +34,7 @@ pipeline {
     stage('Artifacts') {
       steps {
         echo 'Artifacts'
+        archiveArtifacts(artifacts: '**/build.log', allowEmptyArchive: true, fingerprint: true)
       }
     }
 
