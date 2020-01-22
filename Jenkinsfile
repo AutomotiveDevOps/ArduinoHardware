@@ -21,7 +21,7 @@ pipeline {
     stage('Build Process') {
       steps {
         echo 'Build Process'
-        sh 'build.sh'
+        sh 'sh build.sh'
       }
     }
 
