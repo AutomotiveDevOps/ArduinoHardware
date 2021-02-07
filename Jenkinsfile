@@ -19,9 +19,20 @@ pipeline {
     }
 
     stage('Build Process') {
-      steps {
-        echo 'Build Process'
-        sh 'sh build.sh'
+      parallel {
+        stage('Build Process') {
+          steps {
+            echo 'Build Process'
+            sh 'sh build.sh'
+          }
+        }
+
+        stage('') {
+          steps {
+            runMATLABCommand 'build'
+          }
+        }
+
       }
     }
 
