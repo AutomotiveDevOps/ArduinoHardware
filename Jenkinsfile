@@ -21,7 +21,7 @@ pipeline {
     stage('Build Process') {
       steps {
         echo 'Build Process'
-        runMATLABCommand 'buildArduinoTemplates.m'
+        runMATLABCommand 'build.m'
       }
     }
 
