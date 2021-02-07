@@ -19,20 +19,9 @@ pipeline {
     }
 
     stage('Build Process') {
-      parallel {
-        stage('Build Process') {
-          steps {
-            echo 'Build Process'
-            sh 'sh build.sh'
-          }
-        }
-
-        stage('') {
-          steps {
-            runMATLABCommand 'build'
-          }
-        }
-
+      steps {
+        echo 'Build Process'
+        runMATLABCommand 'buildArduinoTemplates.m'
       }
     }
 
